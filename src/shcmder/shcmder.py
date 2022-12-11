@@ -11,13 +11,14 @@ def nix_sudo_sh(cmd: str):
 
     try:
         print(cmd.split())
-        nix_shell = subprocess.Popen(["sudo"] + cmd.split(),
+        nix_shell_proc = subprocess.Popen(["sudo"] + cmd.split(),
                                      stdin=subprocess.PIPE,
                                      stdout=subprocess.PIPE,
                                      stderr=subprocess.PIPE,
                                      universal_newlines=True,
-                                     bufsize=0).communicate(getpass.getpass())
-        stdout, err = nix_shell
+                                     bufsize=0)
+        stdout, err = nix_shell_proc.communicate(getpass.getpass() + '\n')
+        
         if err:
             print(err)
             return err
