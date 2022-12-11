@@ -17,7 +17,7 @@ def nix_sudo_sh(cmd: str):
                                      stderr=subprocess.PIPE,
                                      universal_newlines=True,
                                      bufsize=0)
-        stdout, err = nix_shell_proc.communicate(getpass.getpass() + '\n')
+        stdout, err = nix_shell_proc.communicate(getpass.getpass())
         
         if err:
             print(err)
