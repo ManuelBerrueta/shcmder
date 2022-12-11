@@ -8,6 +8,4 @@
           by Manny Berrueta
 </pre>
 
-<pre align="center">
 **`shcmder`** is a shim for running shell commands and programs as a subprocess through python
-</pre>
