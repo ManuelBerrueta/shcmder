@@ -3,10 +3,11 @@ import getpass
 
 # shcmder by Manny Berrueta
 
-def nix_sudo_sh(pwd: str, cmd: str):
-    if pwd == "" or cmd == "":
-        print("Need to pass in password and command for sudo shell")
-        return "need pwd"
+def nix_sudo_sh(cmd: str):
+    if cmd == "":
+        need_valid_cmd = "Need to pass in a valid command or program"
+        print(need_valid_cmd)
+        return need_valid_cmd
 
     try:
         print(cmd.split())
@@ -15,7 +16,7 @@ def nix_sudo_sh(pwd: str, cmd: str):
                                      stdout=subprocess.PIPE,
                                      stderr=subprocess.PIPE,
                                      universal_newlines=True,
-                                     bufsize=0).communicate(pwd)
+                                     bufsize=0).communicate(getpass.getpass())
         stdout, err = nix_shell
         if err:
             print(err)
@@ -30,8 +31,9 @@ def nix_sudo_sh(pwd: str, cmd: str):
 
 def nix_sh(cmd: str):
     if cmd == "":
-        print("Need to pass in a valid command for shell")
-        return "need pwd"
+        need_valid_cmd = "Need to pass in a valid command or program"
+        print(need_valid_cmd)
+        return need_valid_cmd
 
     try:
         nix_shell = subprocess.Popen(cmd.split(),
