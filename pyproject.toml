@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "shcmder"
+version = "0.0.1"
+authors = [
+  { name="Manny Berrueta", twitter="@ManuelBerrueta" },
+]
+description = "shcmder is a shim for running shell commands and programs as a subprocess through python"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache License 2.0",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ManuelBerrueta/shcmder"
+"Bug Tracker" = "https://github.com/ManuelBerrueta/shcmder/issues"
